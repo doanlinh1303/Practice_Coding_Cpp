@@ -7,25 +7,26 @@ int main(){
 		if(line =="*") break;
 		se.insert(line);
 	}
-	while(getline(cin,line)){
-		if(line=="***") break;
-		string cmd, res;
-		while(stringstream(line) >> cmd >> res){
+	string cmd="";
+	string res;
+	bool check= false;
+	while(cmd!="***"){
+		cin >> cmd >> res;
 			if (cmd=="find"){
 				if(se.find(res)==se.end()){
-				cout << 0<<endl;break;}
+				cout << 0<<endl;}
 				else {
-				cout << 1<<endl;break;}
+				cout << 1<<endl;}
 			}
-			else {
+			if(cmd=="insert"){
 				if(se.find(res)==se.end()) {
 					se.insert(res);
-					cout <<1<<endl;break;
+					cout <<1<<endl;
 				}
 				else
 				{
-				cout <<0<<endl;break;}
+				cout <<0<<endl;}
 			}
 		}
-	}
 }
+
